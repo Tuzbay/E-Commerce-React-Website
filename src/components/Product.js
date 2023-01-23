@@ -44,7 +44,7 @@ const Info = styled.div`
 const Container = styled.div`
   flex: 1;
   margin: 10px;
-  min-width: 280px;
+  min-width: 360px;
   height: 350px;
   display: flex;
   align-items: center;
@@ -80,6 +80,7 @@ const Icon = styled.div`
   justify-content: center;
   margin: 10px;
   transition: 0.5s ease all;
+  cursor: pointer;
 
   &:hover {
     background-color: #e9f5f5;

@@ -52,4 +52,8 @@ const Button = styled.button`
   color: gray;
   cursor: pointer;
   font-weight: 600;
+
+  &:hover {
+    transform: scale(1.02);
+  }
 `;

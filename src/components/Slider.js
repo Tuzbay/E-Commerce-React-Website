@@ -116,4 +116,11 @@ const Button = styled.button`
   font-size: 20px;
   background-color: transparent;
   cursor: pointer;
+  transition: 0.5s ease all;
+  border-radius: 6px;
+
+  &:hover {
+    background-color: #f46e70;
+    color: white;
+  }
 `;
