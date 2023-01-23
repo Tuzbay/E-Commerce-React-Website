@@ -3,17 +3,27 @@ import styled from "styled-components";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import { useNavigate } from "react-router";
 
 function Product({ item }) {
+  const navigate = useNavigate();
+
+  const productDetail = () => {
+    navigate("/product");
+  };
+
+  const goCart = () => {
+    navigate("/cart");
+  };
   return (
     <Container>
       <Circle />
       <Image src={item.img} />
       <Info>
         <Icon>
-          <ShoppingCartOutlinedIcon />
+          <ShoppingCartOutlinedIcon onClick={goCart} />
         </Icon>
-        <Icon>
+        <Icon onClick={productDetail}>
           <SearchOutlinedIcon />
         </Icon>
         <Icon>

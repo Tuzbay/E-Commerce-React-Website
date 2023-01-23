@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
 
@@ -9,8 +9,32 @@ import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 import { Add, Remove } from "@mui/icons-material";
 import { mobile } from "../responsive";
+import { useNavigate } from "react-router";
 
 function Product() {
+  const [amount, setAmount] = useState(1);
+
+  const add = () => {
+    if (amount === 10) {
+      setAmount(10);
+    } else {
+      setAmount(amount + 1);
+    }
+  };
+  const remove = () => {
+    if (amount === 1) {
+      setAmount(1);
+    } else {
+      setAmount(amount + -1);
+    }
+  };
+
+  const navigate = useNavigate();
+
+  const goCart = () => {
+    navigate("/cart");
+  };
+
   return (
     <Container>
       <Navbar />
@@ -48,11 +72,15 @@ function Product() {
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
+              <AmountFunc>
+                <Remove onClick={remove} />
+              </AmountFunc>
+              <Amount>{amount}</Amount>
+              <AmountFunc>
+                <Add onClick={add} />
+              </AmountFunc>
             </AmountContainer>
-            <Button>ADD TO CART</Button>
+            <Button onClick={goCart}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>
@@ -179,4 +207,9 @@ const Button = styled.button`
   &:hover {
     background-color: #f8f4f4;
   }
+`;
+
+const AmountFunc = styled.div`
+  cursor: pointer;
+  display: flex;
 `;

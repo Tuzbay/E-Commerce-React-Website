@@ -5,8 +5,14 @@ import Footer from "../components/Footer";
 import Announcement from "../components/Announcement";
 import { Add, Remove } from "@mui/icons-material";
 import { mobile } from "../responsive";
+import { useNavigate } from "react-router";
 
 function Cart() {
+  const navigate = useNavigate();
+
+  const goProductList = () => {
+    navigate("/productlist");
+  };
   return (
     <Container>
       <Navbar />
@@ -14,7 +20,7 @@ function Cart() {
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
+          <TopButton onClick={goProductList}>CONTINUE SHOPPING</TopButton>
           <TopTexts>
             <TopText>Shopping Bag(2)</TopText>
             <TopText>Your Wishlist (0)</TopText>

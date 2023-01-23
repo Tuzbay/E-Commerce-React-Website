@@ -4,8 +4,23 @@ import SearchIcon from "@mui/icons-material/Search";
 import Badge from "@mui/material/Badge";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { mobile } from "../responsive";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const navigate = useNavigate();
+
+  const register = () => {
+    navigate("/register");
+  };
+  const login = () => {
+    navigate("/login");
+  };
+  const cart = () => {
+    navigate("/cart");
+  };
+  const homePage = () => {
+    navigate("/");
+  };
   return (
     <Container>
       <Wrapper>
@@ -17,12 +32,12 @@ function Navbar() {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>TUZBAY</Logo>
+          <Logo onClick={homePage}>TUZBAY</Logo>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
-          <MenuItem>
+          <MenuItem onClick={register}>REGISTER</MenuItem>
+          <MenuItem onClick={login}>SIGN IN</MenuItem>
+          <MenuItem onClick={cart}>
             <Badge badgeContent={4} color="primary">
               <ShoppingCartOutlinedIcon />
             </Badge>
@@ -97,6 +112,7 @@ const Center = styled.div`
 
 const Logo = styled.h1`
   font-weight: bold;
+  cursor: pointer;
   ${mobile({
     fontSize: "24px",
   })}

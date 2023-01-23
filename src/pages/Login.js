@@ -1,8 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 
 function Login() {
+  const navigate = useNavigate();
+
+  const homePage = () => {
+    navigate("/");
+  };
   return (
     <Container>
       <Wrapper>
@@ -10,7 +16,7 @@ function Login() {
         <Form>
           <Input placeholder="username" />
           <Input placeholder="password" />
-          <Button>LOGIN</Button>
+          <Button onClick={homePage}>LOGIN</Button>
           <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
           <Link>CREATE A NEW ACCOUNT</Link>
         </Form>

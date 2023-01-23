@@ -1,24 +1,30 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 
 function Register() {
+  const navigate = useNavigate();
+
+  const homePage = () => {
+    navigate("/");
+  };
   return (
     <Container>
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
         <Form>
-          <Input placeholder="name" />
-          <Input placeholder="last name" />
-          <Input placeholder="username" />
-          <Input placeholder="email" />
-          <Input placeholder="password" />
-          <Input placeholder="confirm password" />
+          <Input placeholder="Name" />
+          <Input placeholder="Last name" />
+          <Input placeholder="Username" />
+          <Input placeholder="Email" />
+          <Input placeholder="Password" />
+          <Input placeholder="Confirm password" />
           <Agreement>
             By creating an account, I consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>
           </Agreement>
-          <Button>CREATE</Button>
+          <Button onClick={homePage}>CREATE</Button>
         </Form>
       </Wrapper>
     </Container>
